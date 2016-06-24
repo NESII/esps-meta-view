@@ -1,0 +1,102 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" 
+"http://www.w3.org/TR/html4/strict.dtd">
+
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" href="./w3.css">
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script src="./tables.js"></script>
+<script src="./ingest.js"></script>
+<script src="./tabbed_metadata.js"></script>
+<script src="./utilities.js"></script>
+
+</head>
+<body onload="loadJSON()"; style="width:1140px;font-size:13px;">
+
+    <div id="type_holder" class="w3-container" style="display:block;width:100%;">
+               <a style="color:#358C92; text-decoration:none;" href="https://www.earthsystemcog.org/projects/esps/dot_draft" target="_top">ESPS Home</a> 
+    </div>
+
+    <div id="back_links_holder" class="w3-containter w3-white" style="display:none;">
+             <a style="color:#358C92; text-decoration:none;"  href="https://www.earthsystemcog.org/projects/esps/dot_draft" target="_top">ESPS Home </a> |
+             <a style="color:#358C92; text-decoration:none;"  href="" onclick="window.location.reload()">Back to component listing</a>
+   </div>
+    <div id="metadata_holder" class="w3-container" style="display:none;background-color:#B9E0E3; border: 1px solid #333; width:1000px;">
+               <ul class="w3-navbar">
+                    <li><a href=" " id = "overview" class="tablinks" onclick="return openOverview()"><b>Overview</b></a></li>
+                    <li><a href=" " id="component" class="tablinks" onclick="return openComponentDocumentation()"><b>Component Documentation</b></a></li>
+                    <li><a href=" " id="nuopc" class="tablinks" onclick="return openNUOPC()"><b>NUOPC Version Documentation</b> </a></li>
+                    <li><a href=" " id = "access" class="tablinks" onclick="return openAccess()"><b>NUOPC Version Access and Terms of Use</b></a></li>
+               </ul>
+               <p></p>
+
+              <!-- these areas are turn off by default. If the user clicks a tab they turn on. -->
+              <div id="Overview" class="metadata w3-container"></div>
+              <div id="Component" class="metadata w3-container"></div>
+              <div id="NUOPC" class="metadata w3-container"></div>
+              <div id="Access" class="metadata w3-container" style="padding:10px;"></div>
+              <p></p>
+    </div>
+
+
+
+<script>
+var one_model_metadata = new Array();
+var metadata_bytype = {};
+var type_subset = new Array();
+var JSONURL= './esps.json';
+var master_data = new Array();
+var model_selected = " "; 
+var main_nav_color = ' w3-light-blue ';
+var main_tab_color = ' w3-pale-yellow '; // not spaces before and after
+var metadata_tab_color = ' w3-pale-yellow ';
+
+
+function loadJSON(){
+
+    $(document).ready(function(){
+        var selected_type = getQueryString();
+        console.log("in ready");
+        $.getJSON(JSONURL)
+            .success (function( data ) {
+                master_data = data;     
+                console.log ("master data is " + master_data[0]);
+                getMetadataByType(data);           // extracts a few pieces of info for the summary table
+                try {
+                        listModels(onload, selected_type); // draws the summary table
+                }
+
+                catch(err) {
+                     alert(err.message);
+                }
+
+            }) 
+            .fail(function( jqxhr, textStatus, error ) {
+                 var err = textStatus + ", " + error;
+                 console.log( "Request Failed: " + err );
+            })
+            .error (function(data) {
+                 console.log("   something wrong with getJSON");
+            });   
+    });
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
