@@ -16,10 +16,11 @@
 <body onload="loadJSON()"; style="width:1140px;font-size:13px;">
 
     <div id="type_holder" class="w3-container" style="display:block;width:100%;">
-               <a style="color:#358C92; text-decoration:none;" href="https://www.earthsystemcog.org/projects/esps/dot_draft" target="_top">ESPS Home</a> 
+
     </div>
 
     <div id="back_links_holder" class="w3-containter w3-white" style="display:none;">
+
              <a style="color:#358C92; text-decoration:none;"  href="" onclick="window.location.reload()">Back to component listing</a>
    </div>
     <div id="metadata_holder" class="w3-container" style="display:none;background-color:#B9E0E3; border: 1px solid #333; width:1000px;">
