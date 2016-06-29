@@ -1,6 +1,7 @@
 var first_column_width = "250px";
 var w3_classes = " w3-table w3-white w3-striped w3-border";
 var header_color = "#666";
+var header_background_color = "#B9E0E3";
 
 
 function createLinksTable(id, headings,attributes) {
@@ -67,6 +68,7 @@ function createMasterTable(headings, attributes) {
           
           th.style.textAlign = "left";
           th.style.color = header_color;
+          th.style.backgroundColor= header_background_color;
           th.appendChild(document.createTextNode(headings[i]));
           tr.appendChild(th);
        }
