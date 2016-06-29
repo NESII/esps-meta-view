@@ -46,7 +46,7 @@
 var one_model_metadata = new Array();
 var metadata_bytype = {};
 var type_subset = new Array();
-var JSONURL= './esps.json';
+var JSONURL= 'https://esmf-cu.colorado.edu/esps/esps.json';
 var master_data = new Array();
 var model_selected = " "; 
 var main_nav_color = ' w3-light-blue ';
