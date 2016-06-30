@@ -51,7 +51,7 @@ function getMetadata(data, model_clicked) {
                technical[2] = data[j].technicalUrl2
                technical[3] = data[j].technicalUrlTitle2
                technical[4] = data[j].technicalUrl3
-               technical[5] = data[j].techaicalUrlTitle3
+               technical[5] = data[j].technicalUrlTitle3
 
                //Compliance Logs
                var compliance = new Array();
