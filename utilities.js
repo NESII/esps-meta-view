@@ -25,6 +25,7 @@ function createLink(url, title) {
      a.href = url;
      a.style.color = "#358C92";
      a.style.textDecoration = "none";
+     a.setAttribute('target', 'top');   // ensures links open outside of the iframe
      document.body.appendChild(a);
      return a;
 }
