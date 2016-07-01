@@ -51,7 +51,15 @@ function getMetadata(data, model_clicked) {
                technical[2] = data[j].technicalUrl2
                technical[3] = data[j].technicalUrlTitle2
                technical[4] = data[j].technicalUrl3
-               technical[5] = data[j].techaicalUrlTitle3
+               technical[5] = data[j].technicalUrlTitle3
+
+               var user = new Array();
+               user[0] = data[j].userUrl1
+               user[1] = data[j].userUrlTitle1
+               user[2] = data[j].userUrl2
+               user[3] = data[j].userUrlTitle2
+               user[4] = data[j].userUrl3
+               user[5] = data[j].userUrlTitle3
 
                //Compliance Logs
                var compliance = new Array();
@@ -82,7 +90,7 @@ function getMetadata(data, model_clicked) {
                one_model_metadata[1] = general;
                one_model_metadata[2] = science;
                one_model_metadata[3] = technical;
-               one_model_metadata[4] = technical;
+               one_model_metadata[4] = user;
                one_model_metadata[5] = compliance;
                one_model_metadata[6] = test_reports;
                one_model_metadata[7] = access;

@@ -2,28 +2,6 @@ var tab_selected_color = "#B9E0E3";
 var header_color = "#666";
 
 
-
-function clearUndefined(array){
-
-       for (i = 0; i < array.length; i++){
-            if (typeof array[i]  == 'undefined'){
-                  array[i] = "no answer provided";
-            }
-        }
-        return array;
-}
-
-function skipEmptyLinks(array){
-       var new_array = [];
-       for (i = 0; i < array.length; i++){
-            if (typeof array[i]  != 'undefined'){
-                  new_array[i] = array[i];
-            }
-        }
-        return new_array;
-}
-
-
 // fills in the tabbed display of metadata for one model
 function listMetadata(name){
       console.log("in listMetadata");
@@ -68,6 +46,18 @@ function openOverview() {
         container.appendChild(table);
         document.getElementById("Overview").style.display = "block";
         document.getElementById("back_links_holder").style.display = "block";
+ 
+        // add name of model above tabbed display
+        container2 = document.getElementById("name_holder");
+        container2.style.display = "block";
+        h3 = document.createElement('H3');
+        h3.style.textAlign="center";
+        h3.style.color = header_color;
+        h3.style.fontSize = "12pt";  // same as h3 on cog
+        h3.appendChild(document.createTextNode(attributes[0]));
+        h3.appendChild(document.createTextNode(" Model Metadata"));
+        container2.appendChild(h3);
+        
         return false;
 }
 

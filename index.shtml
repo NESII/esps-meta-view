@@ -14,31 +14,39 @@
 
 </head>
 <body onload="loadJSON()"; style="width:1140px;font-size:13px;">
+        <div id = "main" class="w3-container">
 
-    <div id="type_holder" class="w3-container" style="display:block;width:100%;">
-               <a style="color:#358C92; text-decoration:none;" href="https://www.earthsystemcog.org/projects/esps/dot_draft" target="_top">ESPS Home</a> 
-    </div>
+              <div id="type_holder"  style="display:block;width:100%;">
+                     <p> Click on a model name and version below to view additional metadata.</p>
+              </div>
+     
+              <div id="name_holder" style="display:none;">
+   
+              </div>
+              <div id="back_links_holder" class="w3-white" style="display:none;">
+                     <a style="color:#358C92; text-decoration:none;"  href="" onclick="window.location.reload()">Back to component listing</a>
+              </div>
 
-    <div id="back_links_holder" class="w3-containter w3-white" style="display:none;">
-             <a style="color:#358C92; text-decoration:none;"  href="https://www.earthsystemcog.org/projects/esps/dot_draft" target="_top">ESPS Home </a> |
-             <a style="color:#358C92; text-decoration:none;"  href="" onclick="window.location.reload()">Back to component listing</a>
-   </div>
-    <div id="metadata_holder" class="w3-container" style="display:none;background-color:#B9E0E3; border: 1px solid #333; width:1000px;">
-               <ul class="w3-navbar">
-                    <li><a href=" " id = "overview" class="tablinks" onclick="return openOverview()"><b>Overview</b></a></li>
-                    <li><a href=" " id="component" class="tablinks" onclick="return openComponentDocumentation()"><b>Component Documentation</b></a></li>
-                    <li><a href=" " id="nuopc" class="tablinks" onclick="return openNUOPC()"><b>NUOPC Version Documentation</b> </a></li>
-                    <li><a href=" " id = "access" class="tablinks" onclick="return openAccess()"><b>NUOPC Version Access and Terms of Use</b></a></li>
-               </ul>
-               <p></p>
+              <div id="metadata_holder" style="display:none;background-color:#B9E0E3; border: 1px solid #333; width:1000px;">
+                     <ul class="w3-navbar">
+                            <li><a href=" " id = "overview" class="tablinks" onclick="return openOverview()"><b>Overview</b></a></li>
+                            <li><a href=" " id="component" class="tablinks" onclick="return openComponentDocumentation()">
+                                        <b>Component Documentation</b></a>
+                            </li>
+                            <li><a href=" " id="nuopc" class="tablinks" onclick="return openNUOPC()"><b>NUOPC Version Documentation</b> </a></li>
+                            <li><a href=" " id = "access" class="tablinks" onclick="return openAccess()"><b>NUOPC Version Access and Terms of Use</b></a></li>
+                    </ul>
+                    <p></p>
 
-              <!-- these areas are turn off by default. If the user clicks a tab they turn on. -->
-              <div id="Overview" class="metadata w3-container"></div>
-              <div id="Component" class="metadata w3-container"></div>
-              <div id="NUOPC" class="metadata w3-container"></div>
-              <div id="Access" class="metadata w3-container" style="padding:10px;"></div>
-              <p></p>
-    </div>
+                   <!-- these areas are turned off by default. If the user clicks a tab they turn on. -->
+                   <div id="Overview" class="metadata w3-container"></div>
+                   <div id="Component" class="metadata w3-container"></div>
+                   <div id="NUOPC" class="metadata w3-container"></div>
+                   <div id="Access" class="metadata w3-container"></div>
+                   <p></p>
+              </div>
+     </div>
+
 
 
 
