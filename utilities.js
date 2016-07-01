@@ -1,3 +1,23 @@
+function clearUndefined(array){
+
+       for (i = 0; i < array.length; i++){
+            if (typeof array[i]  == 'undefined'){
+                  array[i] = " "; // empty string if no answer is provided
+            }
+        }
+        return array;
+}
+
+function skipEmptyLinks(array){
+       var new_array = [];
+       for (i = 0; i < array.length; i++){
+            if (typeof array[i]  != 'undefined'){
+                  new_array[i] = array[i];
+            }
+        }
+        return new_array;
+}
+
 function getQueryString() {
        console.log("in getQueryString");
        var query = window.location.search.slice(1);

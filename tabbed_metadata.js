@@ -2,28 +2,6 @@ var tab_selected_color = "#B9E0E3";
 var header_color = "#666";
 
 
-
-function clearUndefined(array){
-
-       for (i = 0; i < array.length; i++){
-            if (typeof array[i]  == 'undefined'){
-                  array[i] = "no answer provided";
-            }
-        }
-        return array;
-}
-
-function skipEmptyLinks(array){
-       var new_array = [];
-       for (i = 0; i < array.length; i++){
-            if (typeof array[i]  != 'undefined'){
-                  new_array[i] = array[i];
-            }
-        }
-        return new_array;
-}
-
-
 // fills in the tabbed display of metadata for one model
 function listMetadata(name){
       console.log("in listMetadata");
