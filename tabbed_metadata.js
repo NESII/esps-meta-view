@@ -53,7 +53,7 @@ function openOverview() {
         h3 = document.createElement('H3');
         h3.style.textAlign="center";
         h3.style.color = header_color;
-        h3.style.fontSize = "14pt";
+        h3.style.fontSize = "12pt";  // same as h3 on cog
         h3.appendChild(document.createTextNode(attributes[0]));
         h3.appendChild(document.createTextNode(" Model Metadata"));
         container2.appendChild(h3);
