@@ -1,18 +1,23 @@
 function clearUndefined(array){
-
-       for (i = 0; i < array.length; i++){
-            if (typeof array[i]  == 'undefined'){
-                  array[i] = " "; // empty string if no answer is provided
+       // requires a 1D array, so call in a loop if necessary. 
+       var new_array = [ ];
+       console.log(" in clearUndefined");
+       for (k = 0; k < array.length; k++){
+            if (typeof array[k]  == 'undefined'){
+                  new_array[k] = " "; // empty string if no answer is provided
+            }else{
+            new_array[k] = array[k]
             }
+            console.log("     value of new_array is " + i + " " + new_array[k]);       
         }
-        return array;
+       return new_array;
 }
 
 function skipEmptyLinks(array){
        var new_array = [];
-       for (i = 0; i < array.length; i++){
-            if (typeof array[i]  != 'undefined'){
-                  new_array[i] = array[i];
+       for (k = 0; k < array.length; k++){
+            if (typeof array[k]  != 'undefined'){
+                  new_array[k] = array[k];
             }
         }
         return new_array;

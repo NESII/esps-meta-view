@@ -39,7 +39,6 @@ function createLinksTable(id, headings,attributes) {
         return table;
 }
 
-
 function createMasterTable(headings, attributes) {
      // creates table of components by type (e.g. ocean)
       console.log("in createMasterTable");
@@ -74,10 +73,15 @@ function createMasterTable(headings, attributes) {
        }
         tableBody.appendChild(tr);
      
+         // loop over rows
+        console.log("    number of rows is " + attributes.length);
         for (i = 0; i < attributes.length; i++) {
+              console.log("     row counter is " + i);
               var tr = document.createElement('TR');
+            
+              // note can't clear undefined on the entire array because we need undefined to test for code access. 
               var columns = attributes[i];
-              //console.log("    column data for table row " + i + " is "  + columns);
+              console.log("    column data for table row " + i + " is "  + columns);
               // loop over column data
               console.log("    number of columns for this row is " + columns.length);
 
@@ -90,46 +94,50 @@ function createMasterTable(headings, attributes) {
               a.setAttribute("onclick", "return listMetadata('"+name+"')");
               td.appendChild(a);
               tr.appendChild(td);
-              console.log("    done with column 1");
+              console.log("    done with column 1...model name");
 
               // second column (grids)
               var td2 = document.createElement('TD');
-              td2.appendChild(document.createTextNode(columns[1]));
+              console.log("    grid is " + columns[1]);
+              if (typeof columns[1] == 'undefined'){
+                   td2.appendChild(document.createTextNode(" ") );
+              }else{
+                    td2.appendChild(document.createTextNode(columns[1]));
+              }
               tr.appendChild(td2);
-              console.log("    done with column 2");
+              console.log("    done with column 2...grid");
               
 
               // third column (code access)
               var td3 = document.createElement('TD');
               var text = columns[2] + " ";
               td3.appendChild(document.createTextNode(text));
-              if (typeof(columns[3]) != "undefined"){
+              if (typeof columns[3] != 'undefined'){
                   td3.appendChild(document.createTextNode("See link: "));
                   a1 = createLink(columns[3],columns[4]);
                   td3.appendChild(a1);
-                  console.log("    done with part 1 of column 3");
+                  console.log("    done with part 1 of column 3...first code access");
               }
 
-              if (typeof(columns[5]) != "undefined"){
+              if (typeof columns[5] != 'undefined'){
                   br = document.createElement('br');
                   td3.appendChild(br);
                   var text2 = columns[5] + " ";
                   td3.appendChild(document.createTextNode(text2));
-                  if (typeof(columns[6]) != "undefined"){
+                  if (typeof columns[6] != 'undefined'){
                        td3.appendChild(document.createTextNode("See link: "));
                        a2 = createLink(columns[6],columns[7]);
                        td3.appendChild(a2);
                   }
-                  console.log("    done with part 2 of column 3");
+                  console.log("    done with part 2 of column 3....second code access");
               }
               tr.appendChild(td3);
               
               // fourth column (associated coupled models)
               var td4 = document.createElement('TD');
               td4.appendChild(document.createTextNode(columns[8]));
+              console.log("    done with column 4...model families");
               tr.appendChild(td4);
-
-
               tableBody.appendChild(tr);
      }
      table.appendChild(tableBody);
@@ -178,13 +186,11 @@ function createSimpleTable(id, titles, attributes){
          table.className = w3_classes;
          table.id = id;
 
+         attributes = clearUndefined(attributes);  // use empty string where no anwer exists
+
          for (i = 0; i < titles.length; i++) {
              var tr = document.createElement('TR');
              var td = document.createElement('TD');
-             if (typeof attributes[i]  == 'undefined'){
-                  //console.log("      attribute is undefined");
-                  attributes[i] = "no answer provided";
-             }
              a = createLink(attributes[i],titles[i])
              td.appendChild(a);
              td.style.fontWeight = "normal";
@@ -204,6 +210,8 @@ function createTable(id,headings,attributes){
          table.className = w3_classes; 
          table.id = id;
 
+         attributes = clearUndefined(attributes);
+
          for (i = 0; i < headings.length; i++) {
               var tr = document.createElement('TR');
               var th = document.createElement('TH');
@@ -218,11 +226,6 @@ function createTable(id,headings,attributes){
                   td.setAttribute("id", "short_name");  // set id where short name lives so we can query it later
               }
              
-              //console.log('   looking for undefined ' + attributes[i]);
-              if (typeof attributes[i]  == 'undefined'){
-                   //console.log("      attribute is undefined");
-                   attributes[i] = "no answer provided";
-              }
               td.appendChild(document.createTextNode(attributes[i]));
               tr.appendChild(td);
               tableBody.appendChild(tr);
