@@ -19,7 +19,10 @@
               <div id="type_holder"  style="display:block;width:100%;">
                      <p> Click on a model name and version below to view additional metadata.</p>
               </div>
-
+     
+              <div id="name_holder" style="display:none;">
+   
+              </div>
               <div id="back_links_holder" class="w3-white" style="display:none;">
                      <a style="color:#358C92; text-decoration:none;"  href="" onclick="window.location.reload()">Back to component listing</a>
               </div>
