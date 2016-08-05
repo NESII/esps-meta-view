@@ -11,9 +11,10 @@
 <script src="./ingest.js"></script>
 <script src="./tabbed_metadata.js"></script>
 <script src="./utilities.js"></script>
-
+<!-- note style here will not work, only inline styles will override w3css -->
 </head>
-<body onload="loadJSON()"; style="width:1140px;font-size:13px;">
+<!--make base style same as cog-->
+<body onload="loadJSON()"; style="width:1140px;font: 12px/1.231 Arial,sans-serif;">
         <div id = "main" class="w3-container">
 
               <div id="type_holder"  style="display:block;width:100%;">
